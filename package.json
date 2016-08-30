@@ -1,0 +1,19 @@
+{
+  "name": "pixews-web",
+  "version": "0.0.0",
+  "description": "Marketplace to sell jornalistics pictures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackson7am/pixews-web.git"
+  },
+  "author": "Jackson Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackson7am/pixews-web/issues"
+  },
+  "homepage": "https://github.com/jackson7am/pixews-web#readme"
+}
