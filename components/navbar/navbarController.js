@@ -9,9 +9,16 @@ function navbarController ($scope, $location, apiService) {
     $location.path(pageName)
   }
 
-  $scope.search = function () {
-    console.log('searching');
-    apiService.search($scope.tags)
+  $scope.search = function (tags) {
+    tags = tags.split(' ').reduce(function (previous, current) {
+      return previous + '+' + current
+    })
+    
+    console.log('searching')
+    $location.path('/pesquisar').search({
+      'tags': tags
+    });
+    // .replace('\s', '+')
   }
 }
 

@@ -1,8 +1,8 @@
 (function () {
 
-function searchPageController ($scope) {
-  console.log('Hi')
-  $scope.hi = 'Hello World'
+function searchPageController ($scope, $location) {
+  console.log('Search Page')
+  $scope.queryParameters = $location.search()
 }
 
 angular.module("pixewsWeb").controller('searchPageController', searchPageController)

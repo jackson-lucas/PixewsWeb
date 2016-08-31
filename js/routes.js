@@ -7,9 +7,14 @@ function routes($routeProvider) {
     controller: "homePageController"
   })
 
-  $routeProvider.when("/pesquisa/", {
+  $routeProvider.when("/pesquisar", {
     templateUrl: "components/searchPage/searchPageTemplate.html",
-    controller: "searchPageController"
+    controller: "searchPageController",
+    resolve: {
+      results: function (apiService, $location) {
+        return apiService.search($location.search().tags)
+      }
+    }
   })
   //
   // $routeProvider.when("/empresa/:id", {
@@ -17,7 +22,7 @@ function routes($routeProvider) {
   //   controller: "searchPageController"
   // })
 
-  $routeProvider.when("/cadastar/", {
+  $routeProvider.when("/cadastar", {
     templateUrl: "components/registerPage/registerPageTemplate.html",
     controller: "registerPageController"
   })
