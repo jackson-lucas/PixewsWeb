@@ -7,11 +7,12 @@
   </head>
   <body>
     <div ng-include="'components/navbar/navbarTemplate.html'" ng-controller="navbarController"></div>
-    <div ng-view></div>
+    <div id="content" class="ui ten wide column container">
+      <div ng-view></div>
+    </div>
 
-
-    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
-    <!-- <script src="styles/semantic/semantic.min.js"></script> -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="styles/semantic/semantic.min.js"></script>
 
     <script src="./node_modules/angular/angular.min.js"></script>
     <script src="./node_modules/angular-route/angular-route.min.js"></script>
@@ -19,5 +20,6 @@
     <script src="./js/routes.js"></script>
     <script src="./components/navbar/navbarController.js"></script>
     <script src="./components/searchPage/searchPageController.js"></script>
+    <script src="./components/loginPage/loginPageController.js"></script>
   </body>
 </html>
