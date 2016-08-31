@@ -1,6 +1,7 @@
 (function () {
 
 function apiService($http, config) {
+
   function _search (tags) {
     var req = {
       method: 'GET',
@@ -17,8 +18,25 @@ function apiService($http, config) {
     return $http(req);
   };
 
+  function _login (email, senha) {
+    var req = {
+      method: 'POST',
+      url: config.baseApi + "/empresa",
+      paramSerializer: '$httpParamSerializerJQLike',
+      headers: {
+        'token': config.publicToken
+      },
+      data: {
+        'email': email,
+        'senha': senha
+      }
+    };
+    return $http(req);
+  };
+
   return {
-    'search': _search
+    'search': _search,
+    'login': _login
   }
 
 }
