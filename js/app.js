@@ -1,5 +1,8 @@
 angular.module('pixewsWeb', [
-  'ngRoute'
+  'ngRoute',
+  'ngTouch',
+  'ngAnimate',
+  'ui.bootstrap'
 ]);
 
 angular.module('pixewsWeb').constant('config', {
