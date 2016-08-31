@@ -1,12 +1,10 @@
 (function () {
 
-function routes($routeProvider, config) {
+function routes($routeProvider) {
 
   $routeProvider.when("/", {
-    templateUrl: "views/PlayerTpl.html",
-    controller: "PlayerCtrl",
-    resolve: {
-    }
+    templateUrl: "components/searchPage/searchPageTemplate.html",
+    controller: "searchPageController"
   })
 
   $routeProvider.otherwise({
@@ -14,6 +12,6 @@ function routes($routeProvider, config) {
   })
 }
 
-angular.module("icomptvApp").config(routes)
+angular.module("pixewsWeb").config(routes)
 
 })()
