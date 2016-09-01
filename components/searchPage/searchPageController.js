@@ -11,8 +11,8 @@ function searchPageController ($scope, $location, results, $uibModal, $window) {
     id: '3j4l3FDLJK'
   }]
 
-  $scope.addItem (pictureId) {
-
+  $scope.addItem = function (pictureId) {
+    // $window.localStorage
   }
   // console.log($uibModal)
   $ctrl.open = function (size) {
@@ -26,8 +26,6 @@ function searchPageController ($scope, $location, results, $uibModal, $window) {
       size: size,
     });
   }
-
-  $ctrl.open()
 }
 
 angular.module("pixewsWeb").controller('searchPageController', searchPageController)

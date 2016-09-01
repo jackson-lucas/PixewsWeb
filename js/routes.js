@@ -12,8 +12,8 @@ function routes($routeProvider) {
       controller: "searchPageController",
       resolve: {
       results: function (apiService, $location) {
-        // return apiService.search($location.search().tags)
-        return []
+        return apiService.search($location.search().tags)
+        // return []
       }}
     })
     .when("/login", {

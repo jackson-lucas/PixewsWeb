@@ -23,9 +23,6 @@ function apiService($http, config) {
       method: 'POST',
       url: config.baseApi + "/empresa",
       paramSerializer: '$httpParamSerializerJQLike',
-      headers: {
-        'token': config.publicToken
-      },
       data: {
         'email': email,
         'senha': senha

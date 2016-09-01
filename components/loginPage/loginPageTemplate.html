@@ -1,13 +1,13 @@
 <div class="ui container">
     <form class="ui form">
-      <div class="field">
+      <div class="form-group">
         <label>Email</label>
-        <input type="email" name="first-name" placeholder="Email">
+        <input type="email" class="form-control" ng-model="email" placeholder="Email">
       </div>
-      <div class="field">
-        <label>Password</label>
-        <input type="password" name="last-name" placeholder="Senha">
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" class="form-control" ng-model="senha" placeholder="Senha">
       </div>
-      <button class="ui button" type="submit">Submit</button>
+      <button class="btn btn-default" ng-click="login(email, senha)" type="submit">Login</button>
     </form>
 </div>
