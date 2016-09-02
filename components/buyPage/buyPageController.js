@@ -5,10 +5,24 @@ function buyPageController ($scope, $location, $uibModal, $window) {
 
   $scope.items = $window.localStorage.getItem('shoppingCart')
 
+  $scope.removeAll = function () {
+    delete $window.localStorage.shoppingCart
+  }
+
   $scope.removeItem = function (pictureIndex) {
     $scope.items.splice(pictureIndex, 1)
 
     $window.localStorage.setItem('shoppingCart', $scope.items)
+  }
+
+  $scope.buy = function () {
+    var isLogged = !!$window.localStorage.getItem('chave')
+
+    if (isLogged) {
+      // do transaction
+    } else {
+      $location.path('login')
+    }
   }
 
   $ctrl.open = function (size) {

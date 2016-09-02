@@ -13,7 +13,6 @@ function routes($routeProvider) {
       resolve: {
         results: function (apiService, $location) {
           return apiService.search($location.search().tags)
-          // return []
         }
       }
     })
