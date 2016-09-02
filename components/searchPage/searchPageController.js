@@ -5,11 +5,7 @@ function searchPageController ($scope, $location, results, $uibModal, $window) {
 
   console.log('Search Page')
   console.log(results)
-  $scope.results = [{
-    name: 'Que imagem',
-    description: 'Uma imagem que representa o vácuo',
-    id: '3j4l3FDLJK'
-  }]
+  $scope.results = results.data
 
   $scope.addItem = function (pictureId) {
     // $window.localStorage

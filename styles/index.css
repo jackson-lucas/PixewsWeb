@@ -1,0 +1,5 @@
+.image {
+  min-width: 100%;
+  min-height: 200px;
+  background:url('../images/ripple.gif') no-repeat center center;
+}
