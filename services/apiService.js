@@ -31,9 +31,20 @@ function apiService($http, config) {
     return $http(req);
   };
 
+  function _register (form) {
+    var req = {
+      method: 'PUT',
+      url: config.baseApi + "/empresa",
+      paramSerializer: '$httpParamSerializerJQLike',
+      data: form
+    };
+    return $http(req);
+  };
+
   return {
     'search': _search,
-    'login': _login
+    'login': _login,
+    'register': _register
   }
 
 }
