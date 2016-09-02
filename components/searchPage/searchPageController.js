@@ -8,7 +8,17 @@ function searchPageController ($scope, $location, results, $uibModal, $window) {
   $scope.results = results.data
 
   $scope.addItem = function (pictureId) {
-    // $window.localStorage
+    var shoppingCart = $window.localStorage.getItem('shoppingCart')
+
+    if (!shoppingCart) {
+      shoppingCart = []
+    }
+
+    if (shoppingCart.indexOf(pictureId) == -1) {
+      $window.localStorage.shoppingCart = shoppingCart.push(pictureId)
+    }
+
+    console.log($window.localStorage.getItem('shoppingCart'))
   }
   // console.log($uibModal)
   $ctrl.open = function (size) {

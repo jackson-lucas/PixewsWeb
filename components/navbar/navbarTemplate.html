@@ -30,9 +30,13 @@
         </div>
         <button type="submit" ng-click="search(tags)" class="btn btn-default">Pesquisar</button>
       </form>
-      <div class="navbar-right">
-
-      </div>
+      <ul class="nav navbar-right">
+        <li class="">
+          <a ng-show="hasItemsToBuy" ng-href="#/comprar"><img src="./images/shopping-cart.png" /></a>
+        </li>
+        <li class="">
+          <a ng-show="!hasItemsToBuy" ><img src="./images/shopping-cart-2.png" /></a>
+        </li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

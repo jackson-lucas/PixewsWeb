@@ -3,6 +3,7 @@
 function navbarController ($scope, $location, apiService, $window) {
 
   $scope.isLogged = !!$window.localStorage.getItem('chave')
+  $scope.hasItemsToBuy = !!$window.localStorage.getItem('shoppingCart')
 
   $scope.changePage = function (pageName) {
     console.log('going to ' + pageName);
@@ -25,6 +26,7 @@ function navbarController ($scope, $location, apiService, $window) {
     delete $window.localStorage.chave
     delete $window.localStorage.token
     delete $window.localStorage.usuario
+    delete $window.localStorage.shoppingCart
     $scope.isLogged = false;
   }
 }
