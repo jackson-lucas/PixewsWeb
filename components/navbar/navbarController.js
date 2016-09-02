@@ -22,9 +22,9 @@ function navbarController ($scope, $location, apiService, $window) {
   }
 
   $scope.logoff = function () {
-    $window.localStorage.chave = undefined
-    $window.localStorage.token = undefined
-    $window.localStorage.usuario = undefined
+    delete $window.localStorage.chave
+    delete $window.localStorage.token
+    delete $window.localStorage.usuario
     $scope.isLogged = false;
   }
 }
