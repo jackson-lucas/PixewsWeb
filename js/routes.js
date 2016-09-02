@@ -25,6 +25,10 @@ function routes($routeProvider) {
       templateUrl: "components/loginPage/loginPageTemplate.html",
       controller: "loginPageController"
     })
+    .when("/comprar/", {
+      templateUrl: "components/buyPage/buyPageTemplate.html",
+      controller: "buyPageController"
+    })
 
   //
   // $routeProvider.when("/empresa/:id", {
@@ -32,12 +36,6 @@ function routes($routeProvider) {
   //   controller: "searchPageController"
   // })
 
-
-  //
-  // $routeProvider.when("/comprar/", {
-  //   templateUrl: "components/searchPage/searchPageTemplate.html",
-  //   controller: "searchPageController"
-  // })
   //
   // $routeProvider.when("/foto/:id", {
   //   templateUrl: "components/searchPage/searchPageTemplate.html",

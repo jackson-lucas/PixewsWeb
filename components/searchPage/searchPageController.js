@@ -7,15 +7,15 @@ function searchPageController ($scope, $location, results, $uibModal, $window) {
   console.log(results)
   $scope.results = results.data
 
-  $scope.addItem = function (pictureId) {
+  $scope.addItem = function (picture) {
     var shoppingCart = $window.localStorage.getItem('shoppingCart')
 
     if (!shoppingCart) {
       shoppingCart = []
     }
 
-    if (shoppingCart.indexOf(pictureId) == -1) {
-      $window.localStorage.shoppingCart = shoppingCart.push(pictureId)
+    if (shoppingCart.indexOf(picture) == -1) {
+      $window.localStorage.shoppingCart = shoppingCart.push(picture)
     }
 
     console.log($window.localStorage.getItem('shoppingCart'))
