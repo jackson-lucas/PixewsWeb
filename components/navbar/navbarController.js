@@ -1,6 +1,9 @@
 (function () {
 
-function navbarController ($scope, $location, apiService) {
+function navbarController ($scope, $location, apiService, $window) {
+
+  $scope.isLogged = !!$window.localStorage.getItem('chave')
+
   $scope.changePage = function (pageName) {
     console.log('going to ' + pageName);
     $location.path(pageName)
@@ -16,6 +19,13 @@ function navbarController ($scope, $location, apiService) {
       'tags': tags
     });
     // .replace('\s', '+')
+  }
+
+  $scope.logoff = function () {
+    $window.localStorage.chave = undefined
+    $window.localStorage.token = undefined
+    $window.localStorage.usuario = undefined
+    $scope.isLogged = false;
   }
 }
 

@@ -11,19 +11,21 @@ function routes($routeProvider) {
       templateUrl: "components/searchPage/searchPageTemplate.html",
       controller: "searchPageController",
       resolve: {
-      results: function (apiService, $location) {
-        return apiService.search($location.search().tags)
-        // return []
-      }}
+        results: function (apiService, $location) {
+          return apiService.search($location.search().tags)
+          // return []
+        }
+      }
+    })
+    .when("/cadastrar", {
+      templateUrl: "components/registerPage/registerPageTemplate.html",
+      controller: "registerPageController"
     })
     .when("/login", {
       templateUrl: "components/loginPage/loginPageTemplate.html",
       controller: "loginPageController"
     })
-    .when("/cadastar", {
-      template: "components/registerPage/registerPageTemplate.html",
-      controller: "registerPageController"
-    })
+
   //
   // $routeProvider.when("/empresa/:id", {
   //   templateUrl: "components/searchPage/searchPageTemplate.html",

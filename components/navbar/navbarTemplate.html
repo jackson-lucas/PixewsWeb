@@ -15,10 +15,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="">
-          <a ng-href="/#/login">Login</a>
+          <a ng-show="!isLogged" ng-href="#/login">Entrar</a>
         </li>
         <li>
-          <a ng-href="/#/cadastrar">Cadastrar</a>
+          <a ng-show="!isLogged" ng-href="#/cadastrar">Cadastrar</a>
+        </li>
+        <li class="">
+          <a ng-show="isLogged" ng-click="logoff()">Sair</a>
         </li>
       </ul>
       <form class="navbar-form navbar-left">

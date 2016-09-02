@@ -1,24 +1,30 @@
 <div class="ui container">
     <form class="ui form">
-      <div class="field">
+      <div class="form-group">
         <label>Nome</label>
-        <input type="text" name="first-name" placeholder="First Name">
+        <input type="text" class="form-control" ng-model="name" placeholder="Nome">
       </div>
-      <div class="field">
+      <div class="form-group">
         <label>CNPJ</label>
-        <input type="text" name="last-name" placeholder="Last Name">
+        <input type="text" class="form-control" ng-model="cnpj" placeholder="CNPJ">
       </div>
-      <div class="field">
+      <div class="form-group">
         <label>Email</label>
-        <input type="text" name="last-name" placeholder="Last Name">
+        <input type="email" class="form-control" ng-model="email" placeholder="Email">
       </div>
-      <div class="field">
-        <label>País</label>
-        <select class="ui search dropdown">
-          <option value="">Selecionar País</option>
-          <option value="BR">Brasil</option>
-        </select>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" class="form-control" ng-model="password" placeholder="Senha">
       </div>
-      <button class="ui button" type="submit">Submit</button>
+      <div class="btn-group" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+          País<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+          <li role="menuitem"><a href="">Brasil</a></li>
+        </ul>
+      </div>
+      <br /><br />
+      <button class="btn btn-default" ng-click="login(email, senha)" type="submit">Criar</button>
     </form>
 </div>
