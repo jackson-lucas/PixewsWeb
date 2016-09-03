@@ -1,6 +1,6 @@
 (function () {
 
-function buyPageController ($scope, $location, $uibModal, $window) {
+function buyPageController ($scope, $location, $window, ModalService) {
   var $ctrl = this;
 
   $scope.items = $window.localStorage.getItem('shoppingCart')
@@ -25,16 +25,22 @@ function buyPageController ($scope, $location, $uibModal, $window) {
     }
   }
 
-  $ctrl.open = function (size) {
-    var modalInstance = $uibModal.open({
-      animation: $ctrl.animationsEnabled,
-      ariaLabelledBy: 'modal-title',
-      ariaDescribedBy: 'modal-body',
-      templateUrl: 'components/pictureModal/pictureModalTemplate.html',
-      controller: 'pictureModalController',
-      controllerAs: '$ctrl',
-      size: size,
-    });
+  $scope.showPicture = function (image) {
+    console.log('showing picture')
+    console.log(image)
+
+    ModalService.showModal({
+      templateUrl: "components/pictureModal/pictureModalTemplate.html",
+      controller: "pictureModalController",
+      inputs: {
+        title: "A More Complex Example"
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function(result) {
+        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+      });
+    })
   }
 }
 
