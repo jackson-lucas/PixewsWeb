@@ -7,7 +7,7 @@ function buyPageController (
   ModalService,
   shoppingCartService
 ) {
-  
+
   $scope.items = shoppingCartService.get()
 
   console.log($scope.items);
@@ -18,7 +18,10 @@ function buyPageController (
 
   shoppingCartService.subscribe(subscription)
 
-  $scope.removeAll = shoppingCartService.removeAll
+  $scope.removeAll = function () {
+    shoppingCartService.removeAll()
+    $location.path('/')
+  }
 
   $scope.removeItem = shoppingCartService.remove
 

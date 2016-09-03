@@ -2,43 +2,39 @@
 
 function shoppingCartService($window) {
 
-  var subscribers = []
+  var _shoppingCart = []
+  var _subscribers = []
 
   function get () {
-    return $window.localStorage.getItem('shoppingCart') || []
+    return _shoppingCart
   }
 
   function subscribe (callback) {
-    subscribers.push(callback)
+    console.log('subscribed');
+    console.log(callback);
+    _subscribers.push(callback)
   }
 
   function publish () {
     var index = 0
-    var shoppingCart = get() || []
 
-    for (index=0; index < subscribers.lenght; index++) {
-      subscribers[index](shoppingCart)
-    }
+    _subscribers.every(function (subscriber) {
+      if (subscriber)
+        subscriber(_shoppingCart)
+    })
   }
 
   function add (picture) {
-    var shoppingCart = $window.localStorage.getItem('shoppingCart') || []
-
-    if (shoppingCart.indexOf(picture) == -1) {
-      console.log('adding')
-      console.log(shoppingCart)
-      $window.localStorage.shoppingCart = shoppingCart.push(picture)
+    console.log('adding');
+    if (_shoppingCart.indexOf(picture) == -1) {
+      _shoppingCart.push(picture)
     }
 
     publish()
   }
 
   function remove (pictureId) {
-    var shoppingCart = $window.localStorage.getItem('shoppingCart')
-
-    shoppingCart.splice(pictureId, 1)
-
-    $window.localStorage.setItem('shoppingCart', shoppingCart)
+    _shoppingCart.splice(pictureId, 1)
 
     publish()
   }
@@ -46,9 +42,20 @@ function shoppingCartService($window) {
   function removeAll () {
     console.log('removeAll')
 
-    delete $window.localStorage.shoppingCart
+    _shoppingCart = []
 
     publish()
+  }
+
+  function isNotInShoppingCart (picture) {
+    var index
+    for (index = 0; index < _shoppingCart.length; index++) {
+      if (_shoppingCart[index].id == picture.id) {
+        return false
+      }
+    }
+
+    return true
   }
 
   return {
@@ -57,7 +64,8 @@ function shoppingCartService($window) {
     publish: publish,
     add: add,
     remove: remove,
-    removeAll: removeAll
+    removeAll: removeAll,
+    isNotInShoppingCart: isNotInShoppingCart
   }
 
 }

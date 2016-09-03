@@ -11,9 +11,13 @@ function searchPageController (
 
   console.log('Search Page')
   console.log(results)
-  $scope.results = results.data
 
-  $scope.addItem = shoppingCartService.add
+  $scope.results = results.data.filter(shoppingCartService.isNotInShoppingCart)
+
+  $scope.addItem = function (index, picture) {
+    $scope.results.splice(index, 1)
+    shoppingCartService.add(picture)
+  }
 
   $scope.showPicture = function (picture) {
     ModalService.showModal({

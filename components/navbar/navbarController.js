@@ -1,9 +1,27 @@
 (function () {
 
-function navbarController ($scope, $location, apiService, $window) {
+function navbarController (
+  $scope,
+  $location,
+  apiService,
+  $window,
+  shoppingCartService
+) {
 
   $scope.isLogged = !!$window.localStorage.getItem('chave')
-  $scope.hasItemsToBuy = !!$window.localStorage.getItem('shoppingCart')
+
+  var shoppingCart = shoppingCartService.get()
+
+  $scope.hasItemsToBuy = !!shoppingCart.length
+
+  function subscription (_shoppingCart) {
+    shoppingCart = _shoppingCart
+    $scope.hasItemsToBuy = !!shoppingCart.length
+    console.log('update');
+    console.log($scope.hasItemsToBuy);
+  }
+
+  shoppingCartService.subscribe(subscription)
 
   $scope.changePage = function (pageName) {
     console.log('going to ' + pageName);
