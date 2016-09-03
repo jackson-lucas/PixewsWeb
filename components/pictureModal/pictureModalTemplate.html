@@ -3,31 +3,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">{{title}}</h4>
+        <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-        <p>Here's a more complex modal, it contains a form, data is passed to the controller
-         and data is returned from the modal.</p>
-
-		<form class="form-horizontal" role="form">
-		  <div class="form-group">
-		    <label for="name" class="col-sm-2 control-label">Name</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="name" placeholder="Your Name" ng-model="name">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="age" class="col-sm-2 control-label">Age</label>
-		    <div class="col-sm-10">
-		      <input type="number" class="form-control" id="inputPassword3" placeholder="Age" ng-model="age">
-		    </div>
-		  </div>
-		</form>
-
+        <div class="thumbnail">
+          <img class="image img-rounded" ng-src="http://pixews.com/image/{{picture.arquivo}}">
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>Descricão: {{picture.descricao}}</p>
+            <p>Autor: {{picture.userId}}</p>
+            <p>Dimensões: {{picture.height}}x{{picture.width}}</p>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
-        <button type="button" ng-click="cancel()" class="btn">Cancel</button>
+        <button type="button" class="btn btn-success btn-lg">Adicionar ao carrinho
+        </button>
       </div>
     </div>
   </div>

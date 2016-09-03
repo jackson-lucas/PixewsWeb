@@ -1,36 +1,34 @@
 (function () {
 
-function searchPageController ($scope, $location, results, $uibModal, $window) {
-  var $ctrl = this;
+function searchPageController (
+  $scope,
+  $location,
+  results,
+  ModalService,
+  $window,
+  shoppingCartService
+) {
 
   console.log('Search Page')
   console.log(results)
   $scope.results = results.data
 
-  $scope.addItem = function (picture) {
-    var shoppingCart = $window.localStorage.getItem('shoppingCart')
+  $scope.addItem = shoppingCartService.add
 
-    if (!shoppingCart) {
-      shoppingCart = []
-    }
-
-    if (shoppingCart.indexOf(picture) == -1) {
-      $window.localStorage.shoppingCart = shoppingCart.push(picture)
-    }
-
-    console.log($window.localStorage.getItem('shoppingCart'))
-  }
-  // console.log($uibModal)
-  $ctrl.open = function (size) {
-    var modalInstance = $uibModal.open({
-      animation: $ctrl.animationsEnabled,
-      ariaLabelledBy: 'modal-title',
-      ariaDescribedBy: 'modal-body',
-      templateUrl: 'components/pictureModal/pictureModalTemplate.html',
-      controller: 'pictureModalController',
-      controllerAs: '$ctrl',
-      size: size,
-    });
+  $scope.showPicture = function (picture) {
+    ModalService.showModal({
+      templateUrl: "components/pictureModal/pictureModalTemplate.html",
+      controller: "pictureModalController",
+      inputs: {
+        title: "A More Complex Example",
+        picture: picture
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function(result) {
+        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+      });
+    })
   }
 }
 

@@ -1,19 +1,26 @@
 (function () {
 
-function buyPageController ($scope, $location, $window, ModalService) {
-  var $ctrl = this;
+function buyPageController (
+  $scope,
+  $location,
+  $window,
+  ModalService,
+  shoppingCartService
+) {
+  
+  $scope.items = shoppingCartService.get()
 
-  $scope.items = $window.localStorage.getItem('shoppingCart')
+  console.log($scope.items);
 
-  $scope.removeAll = function () {
-    delete $window.localStorage.shoppingCart
+  function subscription (shoppingCart) {
+    $scope.items = shoppingCart
   }
 
-  $scope.removeItem = function (pictureIndex) {
-    $scope.items.splice(pictureIndex, 1)
+  shoppingCartService.subscribe(subscription)
 
-    $window.localStorage.setItem('shoppingCart', $scope.items)
-  }
+  $scope.removeAll = shoppingCartService.removeAll
+
+  $scope.removeItem = shoppingCartService.remove
 
   $scope.buy = function () {
     var isLogged = !!$window.localStorage.getItem('chave')
@@ -25,15 +32,16 @@ function buyPageController ($scope, $location, $window, ModalService) {
     }
   }
 
-  $scope.showPicture = function (image) {
+  $scope.showPicture = function (picture) {
     console.log('showing picture')
-    console.log(image)
+    console.log(picture)
 
     ModalService.showModal({
       templateUrl: "components/pictureModal/pictureModalTemplate.html",
       controller: "pictureModalController",
       inputs: {
-        title: "A More Complex Example"
+        title: "A More Complex Example",
+        picture: picture
       }
     }).then(function(modal) {
       modal.element.modal();
