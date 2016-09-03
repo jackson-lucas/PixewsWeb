@@ -1,5 +1,5 @@
 (function () {
-  function pictureModalController ($scope, $element, close) {
+  function pictureModalController ($scope, $element, picture, close) {
 
     //  This close function doesn't need to use jQuery or bootstrap, because
     //  the button has the 'data-dismiss' attribute.

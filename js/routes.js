@@ -28,18 +28,10 @@ function routes($routeProvider) {
       templateUrl: "components/buyPage/buyPageTemplate.html",
       controller: "buyPageController"
     })
-
-  //
-  // $routeProvider.when("/empresa/:id", {
-  //   templateUrl: "components/searchPage/searchPageTemplate.html",
-  //   controller: "searchPageController"
-  // })
-
-  //
-  // $routeProvider.when("/foto/:id", {
-  //   templateUrl: "components/searchPage/searchPageTemplate.html",
-  //   controller: "searchPageController"
-  // })
+    .when("/perfil", {
+      templateUrl: "components/profilePage/profilePageTemplate.html",
+      controller: "profilePageController"
+    })
 
   // $routeProvider.otherwise({
   //   redirectTo: "/"
