@@ -29,7 +29,7 @@
       </ul>
       <form class="navbar-form navbar-right">
         <div class="input-group">
-          <input type="text" ng-model="tags" class="form-control" placeholder="Pesquisar">
+          <input type="text" ng-keyup="checkSearch($event.keyCode, tags)" ng-model="tags" class="form-control" placeholder="Pesquisar">
           <span class="input-group-btn">
             <button ng-click="search(tags)" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
           </span>

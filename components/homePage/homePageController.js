@@ -6,6 +6,13 @@ function homePageController ($scope, $location) {
     $('.jumbotron').css('margin-bottom', '0px')
   })
 
+  $scope.checkSearch = function checkSearch(keyCode, tags) {
+    // 'Enter' key code
+    if (keyCode == 13) {
+      $scope.search(tags);
+    }
+  }
+
   $scope.search = function (tags) {
     tags = tags.split(' ').reduce(function (previous, current) {
       return previous + '+' + current
