@@ -1,6 +1,6 @@
 (function () {
 
-function homePageController ($scope, apiService) {
+function homePageController ($scope, $window) {
 }
 
 angular.module("pixewsWeb").controller('homePageController', homePageController)

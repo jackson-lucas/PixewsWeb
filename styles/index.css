@@ -1,11 +1,38 @@
+#header, .navbar, .navbar > * {
+  height: 5%;
+}
+
 * {
   font-family: 'News Cycle', sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0px;
 }
 
 .image {
   min-width: 100%;
   min-height: 200px;
   background:url('../images/ripple.gif') no-repeat center center;
+}
+
+body {
+  background:url('../images/jumbotron-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  padding-top: 15rem;
+  background-color: transparent;
+  color: #fff;
+}
+
+.jumbotron-container {
+  padding: 5rem;
+}
+
+.home-input-group > *, .home-input-group .btn {
+  height: 60px;
 }
 
 .buy-page-row {
