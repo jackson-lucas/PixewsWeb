@@ -28,9 +28,9 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
-    <div ng-include="'components/navbar/navbarTemplate.html'" ng-controller="navbarController"></div>
-    <div id="content" class="ui ten wide column container">
-      <div ng-view></div>
+    <div id="header" ng-include="'components/navbar/navbarTemplate.html'" ng-controller="navbarController"></div>
+    <div id="content" class="ui ten wide column">
+      <div id="view" ng-view></div>
     </div>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -54,6 +54,7 @@
     <script src="./components/buyPage/buyPageController.js"></script>
     <script src="./components/profilePage/profilePageController.js"></script>
     <script src="./components/pictureModal/pictureModalController.js"></script>
+    <script src="./components/myPicturesPage/myPicturesPageController.js"></script>
 
     <script src="./services/apiService.js"></script>
     <script src="./services/shoppingCartService.js"></script>

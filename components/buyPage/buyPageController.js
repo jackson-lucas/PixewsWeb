@@ -37,7 +37,7 @@ function buyPageController (
     }
   }
 
-  $scope.showPicture = function (picture) {
+  $scope.showPicture = function (index, picture) {
     console.log('showing picture')
     console.log(picture)
 
@@ -45,14 +45,14 @@ function buyPageController (
       templateUrl: "components/pictureModal/pictureModalTemplate.html",
       controller: "pictureModalController",
       inputs: {
-        title: "A More Complex Example",
         picture: picture,
+        index: index,
         baseApi: config.baseApi
       }
     }).then(function(modal) {
       modal.element.modal();
       modal.close.then(function(result) {
-        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+        
       });
     })
   }
