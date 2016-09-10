@@ -57,11 +57,28 @@ function apiService($http, config) {
     return $http(req);
   };
 
+  function _getMyPictures (enterpriseId) {
+    var req = {
+      method: 'GET',
+      url: config.baseApi + "/empresa/imagens",
+      //query string params
+      params: {
+        'chave': enterpriseId
+      },
+      paramSerializer: '$httpParamSerializerJQLike',
+      headers: {
+        'token': config.publicToken
+      }
+    };
+    return $http(req);
+  }
+
   return {
     'getUser': _getUser,
     'search': _search,
     'login': _login,
-    'register': _register
+    'register': _register,
+    'getMyPictures': _getMyPictures
   }
 
 }
