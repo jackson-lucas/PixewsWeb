@@ -8,12 +8,12 @@
 
 .image {
   min-width: 100%;
-  min-height: 200px;
+  min-height: 50px;
   background:url('../images/ripple.gif') no-repeat center center;
 }
 
-body {
-
+a:hover {
+  cursor: pointer;
 }
 
 .jumbotron {
