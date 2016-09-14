@@ -20,6 +20,12 @@ a:hover {
   padding-top: 5rem;
 }
 
+.search-page, .buy-page-mosaic {
+  padding-top: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .jumbotron {
   padding-top: 15rem;
   background:url('../images/jumbotron-bg.jpg') no-repeat;
