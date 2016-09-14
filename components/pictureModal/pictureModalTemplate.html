@@ -11,7 +11,7 @@
         </div>
         <div class="panel panel-default">
           <div class="panel-body">
-            <p>Data: {{picture.data_submissao}}</p>
+            <p>Data: {{picture.data_submissao | dateFormatFilter }}</p>
             <p>Descricão: {{picture.descricao}}</p>
             <p>Vendas: {{picture.vendas}}</p>
             <p>Dimensões: {{picture.height}}x{{picture.width}}</p>

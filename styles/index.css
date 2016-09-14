@@ -16,6 +16,10 @@ a:hover {
   cursor: pointer;
 }
 
+.profile-page, .login-page, .register-page {
+  padding-top: 5rem;
+}
+
 .jumbotron {
   padding-top: 15rem;
   background:url('../images/jumbotron-bg.jpg') no-repeat;
