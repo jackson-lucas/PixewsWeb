@@ -5,10 +5,11 @@ function navbarController (
   $location,
   apiService,
   $window,
-  shoppingCartService
+  shoppingCartService,
+  loginService
 ) {
 
-  $scope.isLogged = !!$window.localStorage.getItem('chave')
+  $scope.login = loginService.get()
 
   var shoppingCart = shoppingCartService.get()
 
@@ -48,11 +49,9 @@ function navbarController (
   }
 
   $scope.logoff = function () {
-    delete $window.localStorage.chave
-    delete $window.localStorage.token
-    delete $window.localStorage.usuario
     delete $window.localStorage.shoppingCart
     $scope.isLogged = false;
+    loginService.logoff()
   }
 }
 

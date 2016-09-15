@@ -2,11 +2,16 @@
 
 function shoppingCartService($window) {
 
-  var _shoppingCart = []
+  var _shoppingCart
+    = $window.localStorage.getItem('shoppingCart') ? $window.localStorage.getItem('shoppingCart').split(',') : []
   var _subscribers = []
 
   function get () {
     return _shoppingCart
+  }
+
+  function getItems () {
+    // api get images
   }
 
   function subscribe (callback) {
@@ -28,6 +33,7 @@ function shoppingCartService($window) {
     console.log('adding');
     if (_shoppingCart.indexOf(picture) == -1) {
       _shoppingCart.push(picture)
+      $window.localStorage.shoppingCart = _shoppingCart
     }
 
     publish()
@@ -35,6 +41,7 @@ function shoppingCartService($window) {
 
   function remove (pictureId) {
     _shoppingCart.splice(pictureId, 1)
+    $window.localStorage.shoppingCart = _shoppingCart
 
     publish()
   }
@@ -43,6 +50,7 @@ function shoppingCartService($window) {
     console.log('removeAll')
 
     _shoppingCart = []
+    $window.localStorage.shoppingCart = _shoppingCart
 
     publish()
   }
@@ -50,7 +58,7 @@ function shoppingCartService($window) {
   function isNotInShoppingCart (picture) {
     var index
     for (index = 0; index < _shoppingCart.length; index++) {
-      if (_shoppingCart[index].id == picture.id) {
+      if (_shoppingCart.id == picture.id) {
         return false
       }
     }

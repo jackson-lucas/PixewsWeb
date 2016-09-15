@@ -1,6 +1,6 @@
 (function () {
 
-function loginPageController ($scope, $window, apiService) {
+function loginPageController ($scope, $window, loginService) {
 
 function isLoginValid () {
     if($scope.email == null || $scope.email == "" || $scope.senha == null || $scope.senha == ""){
@@ -45,18 +45,9 @@ function isLoginValid () {
     console.log('login');
     if (isLoginValid()) {
       console.log('valid');
-      apiService.login(email, senha)
-        .then(function success (response) {
-          console.log('logged');
-          console.log(response);
-          $window.localStorage.token = response.data.token;
-          // $window.localStorage.usuario = response.data.usuario.id
-          $window.localStorage.chave = response.data.chave;
-        }, function error (response) {
-          console.error(response);
-        })
+      loginService.login(email, senha)
+    }
   }
-}
 }
 angular.module("pixewsWeb").controller('loginPageController', loginPageController)
 
