@@ -19,7 +19,7 @@ function searchPageController (
 
   $scope.addItem = function (index, picture) {
     $scope.results.splice(index, 1)
-    shoppingCartService.add(picture)
+    shoppingCartService.add(picture.id)
   }
 
   $scope.showPicture = function (index, picture) {

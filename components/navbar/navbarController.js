@@ -13,7 +13,7 @@ function navbarController (
 
   var shoppingCart = shoppingCartService.get()
 
-  $scope.hasItemsToBuy = !!shoppingCart.length
+  $scope.hasItemsToBuy = shoppingCartService.hasItems()
 
   function subscription (_shoppingCart) {
     shoppingCart = _shoppingCart

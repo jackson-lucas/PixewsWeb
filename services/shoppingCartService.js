@@ -6,12 +6,12 @@ function shoppingCartService($window) {
     = $window.localStorage.getItem('shoppingCart') ? $window.localStorage.getItem('shoppingCart').split(',') : []
   var _subscribers = []
 
-  function get () {
-    return _shoppingCart
+  function hasItems () {
+    return !!_shoppingCart.length
   }
 
-  function getItems () {
-    // api get images
+  function get () {
+    return _shoppingCart
   }
 
   function subscribe (callback) {
@@ -67,6 +67,7 @@ function shoppingCartService($window) {
   }
 
   return {
+    hasItems: hasItems,
     get: get,
     subscribe: subscribe,
     publish: publish,
