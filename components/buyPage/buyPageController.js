@@ -6,7 +6,8 @@ function buyPageController (
   $window,
   ModalService,
   shoppingCartService,
-  config
+  config,
+  apiService
 ) {
 
   $scope.baseApi = config.baseApi
@@ -31,7 +32,20 @@ function buyPageController (
     var isLogged = !!$window.localStorage.getItem('chave')
 
     if (isLogged) {
-      // do transaction
+      // request data
+      $scope.items.every(function (item) {
+        apiService.buy({
+          foto_chave: item,
+          empresa_chave: $window.localStorage.chave
+        }).then(function (response) {
+          console.log(item);
+          $scope.items.splice($scope.items.indexOf(item), 1)
+          shoppingCartService.remove(item)
+
+        }, function (error) {
+          console.error(error)
+        })
+      })
     } else {
       $location.path('login')
     }
