@@ -6,6 +6,10 @@
   margin-bottom: 0px;
 }
 
+body {
+  background-color: #029BE5;
+}
+
 .image {
   min-width: 100%;
   min-height: 50px;
