@@ -1,6 +1,7 @@
 <div class="row text-center buy-page-row">
   <button type="button" ng-click="removeAll()" class="btn btn-danger">Cancelar</button>
   <button type="button" ng-click="buy()" class="btn btn-success">Comprar</button>
+  <h1 class="buy-page-price">{{price}}</h1>
 </div>
 <div class="row search-page">
   <div class="col-xs-3 col-md-3 buy-page-mosaic" ng-repeat="(index, picture) in items">
