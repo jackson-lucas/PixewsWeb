@@ -85,21 +85,21 @@
                           <div class="row control-group">
                               <div class="form-group col-xs-12 floating-label-form-group controls">
                                   <label>Nome</label>
-                                  <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor coloque seu nome">
+                                  <input ng-model="name" type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor coloque seu nome">
                                   <p class="help-block text-danger"></p>
                               </div>
                           </div>
                           <div class="row control-group">
                               <div class="form-group col-xs-12 floating-label-form-group controls">
                                   <label>Email</label>
-                                  <input type="email" class="form-control" placeholder="meu@email.com" id="email" required data-validation-required-message="Por favor coloque seu email">
+                                  <input ng-model="email" type="email" class="form-control" placeholder="meu@email.com" id="email" required data-validation-required-message="Por favor coloque seu email">
                                   <p class="help-block text-danger"></p>
                               </div>
                           </div>
                           <div class="row control-group">
                               <div class="form-group col-xs-12 floating-label-form-group controls">
                                   <label>Mensagem</label>
-                                  <textarea rows="5" class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Por favor coloque uma mensagem"></textarea>
+                                  <textarea ng-model="message" rows="5" class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Por favor coloque uma mensagem"></textarea>
                                   <p class="help-block text-danger"></p>
                               </div>
                           </div>
@@ -107,7 +107,7 @@
                           <div id="success"></div>
                           <div class="row">
                               <div class="form-group col-xs-12">
-                                  <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                                  <button type="submit" ng-click="sendEmail(name, email, message)" class="btn btn-success btn-lg">Enviar</button>
                               </div>
                           </div>
                       </form>

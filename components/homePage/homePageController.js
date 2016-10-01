@@ -13,6 +13,22 @@ function homePageController ($scope, $location) {
     }
   }
 
+  $scope.sendEmail = function sendEmail (name, email, message) {
+    if (name && email && message) {
+      $.notify({
+        message: 'Email enviado com sucesso'
+      },{
+        type: 'success'
+      });
+    } else {
+      $.notify({
+        message: 'Campo vazio'
+      },{
+        type: 'danger'
+      });
+    }
+  }
+
   $scope.search = function (tags) {
     tags = tags.split(' ').reduce(function (previous, current) {
       return previous + '+' + current
