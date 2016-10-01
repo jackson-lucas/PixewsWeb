@@ -2,7 +2,7 @@
 
 function homePageController ($scope, $location) {
   angular.element(document).ready(function () {
-    $('.jumbotron').height($('body').height())
+    $('.jumbotron').height(600)
     $('.jumbotron').css('margin-bottom', '0px')
   })
 
